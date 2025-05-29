@@ -33,3 +33,28 @@ test('test 3', async ({ page }) => {
       console.log('El titulo es: ', title)
     }
 });
+
+
+test('test locators', async ({ page }) => {
+    await page.goto('http://127.0.0.1:5500/index.html')
+  
+    //xpath
+    await page.locator('//input[@id="userName"]').fill("mperez")
+
+    //selector
+    await page.locator('input[type="email"]').fill("mperezp@prueba.com")
+
+    //xpath
+    await page.locator('xpath=//input[@name="password"]').fill("1234abc")
+    
+
+    //selector
+    await page.locator('input[id="phoneNumber"]').fill("3185555555")
+
+    //selector y dar clic
+    await page.click('button[type="submit"]')
+
+    await page.pause()
+
+});
+
