@@ -1,12 +1,20 @@
 import { test, expect } from '@playwright/test';
 import { constants } from 'buffer';
+import { LoginPage } from './pageobjects/LoginPage';
 test('Test 1', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   //login
-  await page.getByRole('textbox', {name: 'Username'}).fill("standard_user")
+  
+  /*await page.getByRole('textbox', {name: 'Username'}).fill("standard_user")
   await page.getByRole('textbox', {name: 'Password'}).fill("secret_sauce")
-  await page.getByRole('button', {name: 'Login'}).click()
+  await page.getByRole('button', {name: 'Login'}).click()*/
+
   //('//div[@id="inventory_container"]/inventory_list')
+  
+  const varlogin = new LoginPage(page)
+  await varlogin.loginWithCredentials("standard_user","secret_sauce")
+  await varlogin.checkSuccessFulLogin()
+
   // Espera por items y elige uno al azar
   const itemsContainer = await page.locator('#inventory_container .inventory_item').all()
   const randomIndex = Math.floor(Math.random() * itemsContainer.length);
@@ -44,4 +52,25 @@ test('Test 1', async ({ page }) => {
   await expect(page.getByRole('heading',{name:'Thank you for your order!'})).toBeVisible();
 
 
+});
+
+test('test 1 POM', async ({ page }) => {
+  
+  await page.goto('https://www.saucedemo.com/');
+  //login
+  const varlogin = new LoginPage(page)
+  await varlogin.fillUsername("problem_user")
+  await varlogin.fillPassword("secret_sauce")
+  await varlogin.clickOnLogin()
+
+});
+
+
+test('test 2 POM', async ({ page }) => {
+  
+  await page.goto('https://www.saucedemo.com/');
+  //login
+  const varlogin = new LoginPage(page)
+  await varlogin.loginWithCredentials("standard_user","secret_sauce")
+  await varlogin.checkSuccessFulLogin()
 });
