@@ -74,3 +74,13 @@ test('test 2 POM', async ({ page }) => {
   await varlogin.loginWithCredentials("standard_user","secret_sauce")
   await varlogin.checkSuccessFulLogin()
 });
+
+
+test('navigate', async ({ page }) => {
+  
+  await page.goto(.env.URL);
+  //login
+ /* const varlogin = new LoginPage(page)
+  await varlogin.loginWithCredentials("standard_user","secret_sauce")
+  await varlogin.checkSuccessFulLogin()*/
+});
