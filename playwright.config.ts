@@ -5,6 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  * https://github.com/motdotla/dotenv
  */
 import dotenv from 'dotenv';
+import { on } from 'events';
 import path from 'path';
 //dotenv.config({ path: path.resolve(__dirname, '.env.dev') });
 dotenv.config({ path: path.resolve(__dirname, '.env.${process.env.NODE_ENV ? process.env.NODE_ENV: "dev"}') 
@@ -34,6 +35,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'on'
   },
 
   /* Configure projects for major browsers */

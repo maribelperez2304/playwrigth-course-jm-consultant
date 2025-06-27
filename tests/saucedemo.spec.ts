@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { constants } from 'buffer';
 import { LoginPage } from './pageobjects/LoginPage';
+
+
 test('Test 1', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   //login
@@ -60,8 +62,11 @@ test('test 1 POM', async ({ page }) => {
   //login
   const varlogin = new LoginPage(page)
   await varlogin.fillUsername("problem_user")
+  //await page.screenshot({path: 'screenshots/username.png'})
   await varlogin.fillPassword("secret_sauce")
+  //await page.screenshot({path: 'screenshots/password.png'})
   await varlogin.clickOnLogin()
+  //await page.screenshot({path: 'screenshots/loginexitoso.png', fullPage: true})
 
 });
 
@@ -84,3 +89,18 @@ test('navigate', async ({ page }) => {
   await varlogin.loginWithCredentials("standard_user","secret_sauce")
   await varlogin.checkSuccessFulLogin()*/
 });
+
+
+
+/*
+Ejecutar test por linea de comando un solo test
+
+En la terminal ejecutar
+npx playwright test saucedemo.spec.ts -g "test 1 POM"  
+
+Todos los de la carpeta
+npx playwright test
+
+Repetir test
+npx playwright test saucedemo.spec.ts -g "test 1 POM" --repeat-each 5
+*/
