@@ -3,7 +3,7 @@ import { constants } from 'buffer';
 import { LoginPage } from './pageobjects/LoginPage';
 
 
-test('Test 1', async ({ page }) => {
+test('Test Comprar', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
   //login
   
@@ -92,15 +92,3 @@ test('navigate', async ({ page }) => {
 
 
 
-/*
-Ejecutar test por linea de comando un solo test
-
-En la terminal ejecutar
-npx playwright test saucedemo.spec.ts -g "test 1 POM"  
-
-Todos los de la carpeta
-npx playwright test
-
-Repetir test
-npx playwright test saucedemo.spec.ts -g "test 1 POM" --repeat-each 5
-*/
