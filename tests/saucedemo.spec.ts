@@ -83,12 +83,24 @@ test('test 2 POM', async ({ page }) => {
 
 test('navigate', async ({ page }) => {
   
-  await page.goto(process.env.URL);
+  await page.goto(process.env.URL!);
+  console.log('Prueba de ejecución de workflow');
   //login
  /* const varlogin = new LoginPage(page)
   await varlogin.loginWithCredentials("standard_user","secret_sauce")
   await varlogin.checkSuccessFulLogin()*/
 });
+
+test('console', async ({ page }) => {
+  
+
+  console.log('Prueba de ejecución de workflow');
+  //login
+ /* const varlogin = new LoginPage(page)
+  await varlogin.loginWithCredentials("standard_user","secret_sauce")
+  await varlogin.checkSuccessFulLogin()*/
+});
+
 
 
 
